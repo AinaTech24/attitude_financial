@@ -1,0 +1,257 @@
+.footer {
+  background: #ffffff;
+  color: #475569;
+  padding-top: 64px;
+  border-top: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.3fr 1.1fr 1.6fr;
+  gap: 36px;
+  margin-bottom: 52px;
+}
+
+.companyCol {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.companyDesc {
+  color: #64748b;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin-top: 4px;
+}
+
+.arnTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(142, 198, 31, 0.12);
+  color: #3f6212;
+  border: 1px solid rgba(142, 198, 31, 0.35);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.footerHeading {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.footerHeading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2.5px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footerLink {
+  color: #475569;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footerLink:hover {
+  color: var(--primary-dark);
+  transform: translateX(3px);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.contactIcon {
+  color: var(--primary-dark);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactLink {
+  color: #334155;
+  transition: color var(--transition-fast);
+}
+
+.contactLink:hover {
+  color: var(--primary-dark);
+}
+
+/* Regulatory / Disclosure Section matching Image 3 (#f8fafc) */
+.disclosureSection {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  margin-bottom: 36px;
+}
+
+.riskHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #b45309;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 8px;
+}
+
+.riskText {
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.disclosureText {
+  color: #64748b;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.riskFactorHighlight {
+  color: #c2410c;
+  font-weight: 700;
+}
+
+.riskFactorParagraph {
+  color: #475569;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* Bottom Legal Bar matching Image 3 (#ffffff) */
+.bottomBar {
+  border-top: 1px solid #e2e8f0;
+  padding: 24px 0;
+  background: #ffffff;
+}
+
+.bottomBarInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.copyright {
+  font-size: 0.8125rem;
+  color: #64748b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  text-align: center;
+}
+
+.designedByLink {
+  color: #ea580c;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.designedByLink:hover {
+  color: #c2410c;
+  text-decoration: underline;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  text-align: center;
+}
+
+.legalLink {
+  color: #64748b;
+  font-size: 0.8125rem;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.legalLink:hover {
+  color: #0f172a;
+  text-decoration: underline;
+}
+
+.legalDivider {
+  color: #cbd5e1;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 1024px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .companyCol {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .companyCol {
+    grid-column: span 1;
+  }
+  .bottomBarInner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+  .legalLinks {
+    justify-content: center;
+    gap: 10px 16px;
+  }
+  .legalDivider {
+    display: none;
+  }
+}
