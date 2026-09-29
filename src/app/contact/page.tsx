@@ -3,46 +3,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Phone, Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle, Navigation, ExternalLink,
-  ChevronDown, Check, TrendingUp, Calendar, ShieldCheck, Landmark, HelpCircle, Calculator 
+  ChevronDown
 } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/company';
 
 const ENQUIRY_OPTIONS = [
-  {
-    value: 'Mutual Fund Distribution',
-    label: 'Mutual Fund Distribution',
-    icon: Landmark,
-    badgeColor: '#eff6ff',
-    iconColor: '#2563eb'
-  },
-  {
-    value: 'Mutual Funds & SIPs',
-    label: 'Mutual Funds & SIPs',
-    icon: TrendingUp,
-    badgeColor: '#ecfdf5',
-    iconColor: '#16a34a'
-  },
-  {
-    value: 'Life & Health Insurance',
-    label: 'Life & Health Insurance',
-    icon: ShieldCheck,
-    badgeColor: '#fef2f2',
-    iconColor: '#dc2626'
-  },
-  {
-    value: 'Tax Saving Strategies',
-    label: 'Tax Saving Strategies',
-    icon: Calculator,
-    badgeColor: '#fef3c7',
-    iconColor: '#d97706'
-  },
-  {
-    value: 'General Inquiry',
-    label: 'General Inquiry',
-    icon: HelpCircle,
-    badgeColor: '#f1f5f9',
-    iconColor: '#475569'
-  }
+  { value: 'Mutual Fund Distribution', label: 'Mutual Fund Distribution' },
+  { value: 'Mutual Funds & SIPs', label: 'Mutual Funds & SIPs' },
+  { value: 'Life & Health Insurance', label: 'Life & Health Insurance' },
+  { value: 'Tax Saving Strategies', label: 'Tax Saving Strategies' },
+  { value: 'General Inquiry', label: 'General Inquiry' }
 ];
 
 export default function ContactPage() {
@@ -202,47 +172,42 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    {/* Service Selection - Sleek Service Cards without heavy descriptions */}
+                    {/* Service Selection - Simple Dropdown */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 700, marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.04em', color: '#64748b' }}>
+                      <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, marginBottom: 8, color: '#0f172a' }}>
                         Select Service <span style={{ color: '#ef4444' }}>*</span>
                       </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        {ENQUIRY_OPTIONS.map((opt) => {
-                          const IconComponent = opt.icon;
-                          const isSelected = formData.category === opt.value;
-                          return (
-                            <button
-                              key={opt.value}
-                              type="button"
-                              onClick={() => setFormData({ ...formData, category: opt.value })}
-                              className={`flex items-center gap-3 p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
-                                isSelected
-                                  ? 'bg-lime-50/90 border-lime-500 shadow-sm ring-2 ring-lime-500/20'
-                                  : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50'
-                              }`}
-                            >
-                              <div
-                                className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform"
-                                style={{ backgroundColor: opt.badgeColor }}
-                              >
-                                <IconComponent size={16} style={{ color: opt.iconColor }} />
-                              </div>
-                              <span className={`text-[0.88rem] flex-1 truncate ${
-                                isSelected ? 'text-slate-950 font-bold' : 'text-slate-700 font-semibold'
-                              }`}>
-                                {opt.label}
-                              </span>
-                              {isSelected && (
-                                <div className="w-5 h-5 rounded-full bg-lime-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                                  <Check size={12} strokeWidth={3} />
-                                </div>
-                              )}
-                            </button>
-                          );
-                        })}
+                      <div className="relative">
+                        <select
+                          required
+                          value={formData.category}
+                          onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                          style={{
+                            width: '100%',
+                            padding: '12px 40px 12px 16px',
+                            borderRadius: 'var(--radius-sm)',
+                            border: '1px solid var(--border-medium)',
+                            fontSize: '0.9375rem',
+                            outline: 'none',
+                            backgroundColor: '#ffffff',
+                            color: '#0f172a',
+                            cursor: 'pointer',
+                            appearance: 'none',
+                            WebkitAppearance: 'none',
+                            MozAppearance: 'none'
+                          }}
+                        >
+                          {ENQUIRY_OPTIONS.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronDown 
+                          size={18} 
+                          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-500" 
+                        />
                       </div>
-                      <input type="hidden" name="category" value={formData.category} />
                     </div>
 
                     {/* Message */}

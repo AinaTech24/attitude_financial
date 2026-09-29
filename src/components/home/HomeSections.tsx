@@ -538,12 +538,17 @@ export function LatestBlogsSection() {
             >
               <div>
                 {/* Top Image with Pinned Dark Navy Category Badge */}
-                <div className="relative w-full overflow-hidden bg-[#0a111a]" style={{ height: 220 }}>
+                <Link
+                  href={`/blogs/${post.slug}`}
+                  className="relative w-full overflow-hidden bg-[#0a111a] block group"
+                  style={{ height: 220 }}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={post.image}
                     alt={post.title}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    className="group-hover:scale-105 transition-transform duration-300"
                   />
 
                   {/* Pinned Category Pill Badge */}
@@ -557,7 +562,7 @@ export function LatestBlogsSection() {
                   }}>
                     {post.category}
                   </div>
-                </div>
+                </Link>
 
                 {/* Body Content */}
                 <div style={{ padding: '20px 20px 14px 20px' }}>

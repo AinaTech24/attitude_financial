@@ -5,6 +5,16 @@ import BrandLogo from '../common/BrandLogo';
 import { COMPANY_INFO } from '@/data/company';
 import styles from './Footer.module.css';
 
+const MARKET_LINKS = [
+  { name: 'NSE', url: 'https://www.nseindia.com/' },
+  { name: 'BSE', url: 'https://www.bseindia.com/' },
+  { name: 'SEBI', url: 'https://www.sebi.gov.in/' },
+  { name: 'RBI', url: 'https://www.rbi.org.in/' },
+  { name: 'CDSL', url: 'https://www.cdslindia.com/' },
+  { name: 'NCDEX', url: 'https://www.ncdex.com/' },
+  { name: 'MCX', url: 'https://www.mcxindia.com/' }
+];
+
 export default function Footer() {
   return (
     <footer className={styles.footer}>
@@ -72,7 +82,7 @@ export default function Footer() {
               <li>
                 <Link href="/disclosure" className={styles.footerLink}>
                   <ChevronRight size={13} />
-                  <span>Commission Disclosure</span>
+                  <span>Disclosure</span>
                 </Link>
               </li>
             </ul>
@@ -212,77 +222,32 @@ export default function Footer() {
           <p className={styles.disclosureText}>
             {COMPANY_INFO.disclosures.generalDisclosure}
           </p>
-
-          {/* Separate Dedicated Commission & Regulatory Disclosure Block */}
-          <div style={{
-            marginTop: 20,
-            paddingTop: 18,
-            borderTop: '1px solid #e2e8f0',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 12
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <Shield size={16} style={{ color: '#0f172a' }} />
-                <span style={{ fontSize: '0.875rem', fontWeight: 800, color: '#0f172a' }}>
-                  Distributor Commission Disclosures &amp; Regulatory Directives
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-                <Link
-                  href="/disclosure"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 6,
-                    fontSize: '0.8125rem',
-                    fontWeight: 700,
-                    color: '#15803d',
-                    backgroundColor: '#f0fdf4',
-                    border: '1px solid #bbf7d0',
-                    padding: '6px 14px',
-                    borderRadius: 9999,
-                    textDecoration: 'none'
-                  }}
-                >
-                  <span>% Trail Commission Rates Table</span>
-                  <ChevronRight size={13} />
-                </Link>
-                <Link
-                  href="/disclaimer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 6,
-                    fontSize: '0.8125rem',
-                    fontWeight: 700,
-                    color: '#0f172a',
-                    backgroundColor: '#ffffff',
-                    border: '1px solid #cbd5e1',
-                    padding: '6px 14px',
-                    borderRadius: 9999,
-                    textDecoration: 'none'
-                  }}
-                >
-                  <span>Statutory Disclaimer</span>
-                  <ChevronRight size={13} />
-                </Link>
-              </div>
-            </div>
-            <p style={{ fontSize: '0.78rem', color: '#64748b', lineHeight: 1.6, margin: 0 }}>
-              In accordance with SEBI circulars (SEBI/IMD/CIR No. 4/168230/09) and AMFI code of conduct, trail commission schedules across scheme categories (Liquid, Income, Gilt, Hybrid, ELSS, and Equity) are fully disclosed. Investors can evaluate regular vs direct plans anytime.
-            </p>
-          </div>
         </div>
 
         {/* Bottom Legal Bar matching Image 5 */}
         <div className={styles.bottomBar}>
           <div className={styles.bottomBarInner}>
+            {/* Market & Regulatory Exchange Direct Links */}
+            <div className={styles.marketLinks}>
+              {MARKET_LINKS.map((item, idx) => (
+                <React.Fragment key={item.name}>
+                  {idx > 0 && <span className={styles.marketPipe}>|</span>}
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.marketLink}
+                  >
+                    {item.name}
+                  </a>
+                </React.Fragment>
+              ))}
+            </div>
+
             <div className={styles.copyright}>
               <span>&copy; 2026 {COMPANY_INFO.legalName.replace(/\.+$/, '')}. All Rights Reserved | Designed by</span>
               <a
-                href="https://ainatechservices.com"
+                href="https://ainatech.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.designedByLink}
@@ -302,7 +267,7 @@ export default function Footer() {
                 Disclaimer
               </Link>
               <Link href="/disclosure" className={styles.legalLink}>
-                Commission Disclosure
+                Disclosure
               </Link>
               <a
                 href="https://www.sebi.gov.in/filings/mutual-funds.html"

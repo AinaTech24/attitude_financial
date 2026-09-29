@@ -21,55 +21,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/blogs/page.js"
     ],
-    "/about/page": [
+    "/blogs/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/about/page.js"
-    ],
-    "/services/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/services/page.js"
-    ],
-    "/calculators/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/calculators/page.js"
-    ],
-    "/contact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/contact/page.js"
-    ],
-    "/sitemap/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/sitemap/page.js"
-    ],
-    "/services/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/services/[slug]/page.js"
-    ],
-    "/disclaimer/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/disclaimer/page.js"
-    ],
-    "/privacy-policy/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/privacy-policy/page.js"
-    ],
-    "/disclosure/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/disclosure/page.js"
-    ],
-    "/amfi-risk-factors/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/amfi-risk-factors/page.js"
+      "static/chunks/app/blogs/[slug]/page.js"
     ]
   }
 }

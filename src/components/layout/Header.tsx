@@ -323,21 +323,6 @@ export default function Header() {
 
             <div className="relative flex items-center">
               <Link
-                href="/disclosure"
-                prefetch={true}
-                onClick={(e) => handleNavClick(e, '/disclosure')}
-                className={`px-3.5 py-2 rounded-full text-[0.8875rem] font-semibold transition-all duration-200 ${
-                  pathname === '/disclosure'
-                    ? 'text-amber-600 font-bold bg-amber-50/60'
-                    : 'text-slate-800 hover:text-slate-900 hover:bg-slate-100'
-                }`}
-              >
-                Disclosure
-              </Link>
-            </div>
-
-            <div className="relative flex items-center">
-              <Link
                 href="/blogs"
                 prefetch={true}
                 onClick={(e) => handleNavClick(e, '/blogs')}
@@ -496,15 +481,6 @@ export default function Header() {
                 ))}
               </ul>
             )}
-          </li>
-          <li>
-            <Link
-              href="/disclosure"
-              prefetch={true}
-              className="flex items-center justify-between p-3 text-base font-semibold text-slate-800 rounded-lg hover:bg-slate-100"
-            >
-              Disclosure
-            </Link>
           </li>
           <li>
             <Link

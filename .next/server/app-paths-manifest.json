@@ -1,8 +1,5 @@
 {
   "/page": "app/page.js",
-  "/calculators/page": "app/calculators/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/sitemap/page": "app/sitemap/page.js",
-  "/disclosure/page": "app/disclosure/page.js",
-  "/blogs/page": "app/blogs/page.js"
+  "/blogs/page": "app/blogs/page.js",
+  "/blogs/[slug]/page": "app/blogs/[slug]/page.js"
 }

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Search, Clock, Calendar, ArrowRight, BookOpen, ExternalLink, RefreshCw, Radio, Sparkles } from 'lucide-react';
 import { BLOGS_DATA } from '@/data/blogs';
 import { fetchLiveBlogs, LiveArticle, INITIAL_LIVE_ARTICLES } from '@/lib/blogs';
+import { slugify } from '@/lib/slugify';
 
 export default function BlogsPage() {
   const [activeTab, setActiveTab] = useState<'live' | 'guides'>('live');
@@ -221,13 +222,17 @@ export default function BlogsPage() {
                     >
                       <div>
                         {/* Article Thumbnail */}
-                        <div style={{
-                          position: 'relative',
-                          width: '100%',
-                          height: 190,
-                          backgroundColor: 'var(--navy-900)',
-                          overflow: 'hidden'
-                        }}>
+                        <Link
+                          href={`/blogs/${article.slug || slugify(article.title)}`}
+                          style={{
+                            position: 'relative',
+                            width: '100%',
+                            height: 190,
+                            backgroundColor: 'var(--navy-900)',
+                            overflow: 'hidden',
+                            display: 'block'
+                          }}
+                        >
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={article.image}
@@ -277,7 +282,7 @@ export default function BlogsPage() {
                           }}>
                             {article.category}
                           </div>
-                        </div>
+                        </Link>
 
                         {/* Card Body */}
                         <div style={{ padding: '20px 22px' }}>
@@ -296,14 +301,12 @@ export default function BlogsPage() {
                               marginBottom: 10,
                               color: 'var(--navy-950)'
                             }}>
-                              <a
-                                href={article.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                              <Link
+                                href={`/blogs/${article.slug || slugify(article.title)}`}
                                 style={{ color: 'inherit', textDecoration: 'none' }}
                               >
                                 {article.title}
-                              </a>
+                              </Link>
                             </h3>
 
                             <p style={{
@@ -329,10 +332,8 @@ export default function BlogsPage() {
                           <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)' }}>
                             Source: {article.source}
                           </span>
-                          <a
-                            href={article.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <Link
+                            href={`/blogs/${article.slug || slugify(article.title)}`}
                             style={{
                               display: 'inline-flex',
                               alignItems: 'center',
@@ -343,8 +344,8 @@ export default function BlogsPage() {
                             }}
                           >
                             <span>Read Full Story</span>
-                            <ExternalLink size={13} style={{ color: 'var(--primary-dark)' }} />
-                          </a>
+                            <ArrowRight size={13} style={{ color: 'var(--primary-dark)' }} />
+                          </Link>
                         </div>
                       </article>
                     ))}
@@ -423,13 +424,17 @@ export default function BlogsPage() {
                     >
                       <div>
                         {/* Top Image with Pinned Dark Navy Category Badge */}
-                        <div style={{
-                          position: 'relative',
-                          width: '100%',
-                          height: 220,
-                          backgroundColor: '#0a111a',
-                          overflow: 'hidden'
-                        }}>
+                        <Link
+                          href={`/blogs/${post.slug}`}
+                          style={{
+                            position: 'relative',
+                            width: '100%',
+                            height: 220,
+                            backgroundColor: '#0a111a',
+                            overflow: 'hidden',
+                            display: 'block'
+                          }}
+                        >
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={post.image}
@@ -458,7 +463,7 @@ export default function BlogsPage() {
                           }}>
                             {post.category}
                           </div>
-                        </div>
+                        </Link>
 
                         {/* Body Content */}
                         <div style={{ padding: '24px 24px 16px 24px' }}>
