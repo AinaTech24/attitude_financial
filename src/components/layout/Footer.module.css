@@ -113,144 +113,217 @@
   color: var(--primary-dark);
 }
 
-/* Regulatory / Disclosure Section matching Image 3 (#f8fafc) */
-.disclosureSection {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--radius-md);
-  padding: 24px 28px;
-  margin-bottom: 36px;
+/* Compliance & Regulatory Portals Section matching Website Theme */
+.complianceSection {
+  border-top: 1px solid #e2e8f0;
+  padding: 38px 0 20px;
+  background: #ffffff;
+  margin-top: 24px;
 }
 
-.riskHeader {
+.portalTitle {
+  color: #0f172a;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+  font-family: var(--font-heading);
+}
+
+.portalCapsules {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
-  color: #b45309;
+  margin-bottom: 24px;
+}
+
+.portalCapsule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 0.75rem;
   font-weight: 700;
-  font-size: 0.9375rem;
-  margin-bottom: 8px;
+  text-decoration: none;
+  background: #ffffff;
+  transition: all var(--transition-fast);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
-.riskText {
-  color: #0f172a;
-  font-weight: 600;
-  font-size: 0.9rem;
-  line-height: 1.55;
-  margin-bottom: 12px;
+.portalCapsule:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(142, 198, 31, 0.22);
 }
 
-.disclosureText {
+.disclaimersBox {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.disclaimerParagraph {
+  font-size: 0.75rem;
+  line-height: 1.65;
   color: #64748b;
-  font-size: 0.8125rem;
-  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 12px;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.riskFactorHighlight {
-  color: #c2410c;
-  font-weight: 700;
+.credentialsBox {
+  margin-top: 16px;
+  margin-bottom: 18px;
+  padding: 8px 16px;
+  text-align: center;
 }
 
-.riskFactorParagraph {
-  color: #475569;
-  font-size: 0.8125rem;
+.credentialsLine {
+  font-size: 0.75rem;
   line-height: 1.7;
-  margin-bottom: 14px;
+  color: #475569;
+  text-align: center;
+  font-weight: 500;
 }
 
-/* Bottom Legal Bar matching Image 3 (#ffffff) */
+.credentialHighlight {
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.credentialLink {
+  color: #0f172a;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.credentialLink:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Regulatory Navigation Links */
+.complianceNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 20px auto;
+  max-width: 1020px;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.complianceNavLink {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.complianceNavLink:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.navPipe {
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+/* Industry Badges Cards */
+.industryBadges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 22px 0 14px;
+  flex-wrap: wrap;
+}
+
+.badgeCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  height: 60px;
+  min-width: 130px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.badgeCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
+}
+
+.badgeImg {
+  max-height: 38px;
+  max-width: 150px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Bottom Legal Flex Bar */
 .bottomBar {
   border-top: 1px solid #e2e8f0;
-  padding: 24px 0;
+  padding: 22px 0;
+  margin-top: 22px;
   background: #ffffff;
 }
 
 .bottomBarInner {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 14px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.copyright {
+.copyrightLeft {
   font-size: 0.8125rem;
   color: #64748b;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  text-align: center;
+  font-weight: 500;
+}
+
+.designedByRight {
+  font-size: 0.8125rem;
+  color: #64748b;
+  font-weight: 500;
 }
 
 .designedByLink {
-  color: #ea580c;
+  color: var(--primary-dark);
   font-weight: 700;
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .designedByLink:hover {
-  color: #c2410c;
+  color: var(--primary);
   text-decoration: underline;
-}
-
-.legalLinks {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px 22px;
-  text-align: center;
-}
-
-.legalLink {
-  color: #64748b;
-  font-size: 0.8125rem;
-  transition: color var(--transition-fast);
-  white-space: nowrap;
-}
-
-.legalLink:hover {
-  color: #0f172a;
-  text-decoration: underline;
-}
-
-.legalDivider {
-  color: #cbd5e1;
-  font-size: 0.8125rem;
-}
-
-/* Regulatory & Market Exchanges Links matching Image */
-.marketLinks {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px 18px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding-bottom: 4px;
-}
-
-.marketLink {
-  color: #334155;
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.marketLink:hover {
-  color: #ea580c;
-  text-decoration: underline;
-}
-
-.marketPipe {
-  color: #ea580c;
-  font-weight: 600;
-  user-select: none;
 }
 
 @media (max-width: 1024px) {
@@ -275,13 +348,27 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 14px;
+    gap: 10px;
   }
-  .legalLinks {
-    justify-content: center;
-    gap: 10px 16px;
+  .complianceSection {
+    padding: 32px 12px 20px;
   }
-  .legalDivider {
-    display: none;
+  .portalCapsules {
+    gap: 8px;
+  }
+  .portalCapsule {
+    padding: 5px 12px;
+    font-size: 0.7rem;
+  }
+  .complianceNav {
+    gap: 6px 10px;
+  }
+  .badgeCard {
+    height: 56px;
+    padding: 10px 20px;
+  }
+  .badgeImg {
+    max-height: 34px;
   }
 }
+

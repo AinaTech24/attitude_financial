@@ -5,7 +5,7 @@ import BrandLogo from '../common/BrandLogo';
 import { COMPANY_INFO } from '@/data/company';
 import styles from './Footer.module.css';
 
-const MARKET_LINKS = [
+const REGULATORY_PORTALS = [
   { name: 'NSE', url: 'https://www.nseindia.com/' },
   { name: 'BSE', url: 'https://www.bseindia.com/' },
   { name: 'SEBI', url: 'https://www.sebi.gov.in/' },
@@ -13,6 +13,24 @@ const MARKET_LINKS = [
   { name: 'CDSL', url: 'https://www.cdslindia.com/' },
   { name: 'NCDEX', url: 'https://www.ncdex.com/' },
   { name: 'MCX', url: 'https://www.mcxindia.com/' }
+];
+
+const COMPLIANCE_LINKS = [
+  { label: 'AMFI Risk Factors', href: '/risk-factors', isExternal: false },
+  { label: 'Terms & Conditions', href: '/terms-of-service', isExternal: false },
+  { label: 'Disclaimer', href: '/disclaimer', isExternal: false },
+  { label: 'Investor Charter', href: '/investor-charter', isExternal: false },
+  { label: 'Fund Selection & Suitability Policy', href: '/fund-selection-policy', isExternal: false },
+  { label: 'Client Onboarding & KYC Policy', href: '/client-onboarding', isExternal: false },
+  { label: 'Rights & Obligations Of Investors', href: '/rights-and-obligations', isExternal: false },
+  { label: "Do's and Don'ts for Investors", href: '/dos-and-donts', isExternal: false },
+  { label: 'Privacy Policy', href: '/privacy-policy', isExternal: false },
+  { label: 'AMFI Code of Conduct', href: '/AMFI_Code-of-Conduct.pdf', isExternal: true },
+  { label: 'SEBI Circulars', href: 'https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=1&ssid=7&smid=0', isExternal: true },
+  { label: 'KIM / SID / SAI', href: 'https://www.sebi.gov.in/filings/mutual-funds.html', isExternal: true },
+  { label: 'Factsheet', href: 'https://www.amfiindia.com/online-center/download-factsheets', isExternal: true },
+  { label: 'Scheme-Wise Commission Disclosure', href: '/scheme-wise-commission', isExternal: false },
+  { label: 'Registration Disclosure', href: '/registration-disclosure', isExternal: false }
 ];
 
 export default function Footer() {
@@ -80,9 +98,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/disclosure" className={styles.footerLink}>
+                <Link href="/registration-disclosure" className={styles.footerLink}>
                   <ChevronRight size={13} />
-                  <span>Disclosure</span>
+                  <span>Disclosures</span>
                 </Link>
               </li>
             </ul>
@@ -207,95 +225,112 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Regulatory & Risk Disclosure Section */}
-        <div className={styles.disclosureSection}>
-          <div className={styles.riskHeader}>
-            <AlertCircle size={18} />
-            <span>Statutory Market Risk Disclosure</span>
+        {/* Regulatory & Compliance Disclosures Section matching User Requirements */}
+        <div className={styles.complianceSection}>
+          {/* 1. Important Regulatory & Exchange Portals (Top Capsules Row) */}
+          <div className={styles.portalTitle}>
+            IMPORTANT REGULATORY &amp; EXCHANGE PORTALS
+          </div>
+          <div className={styles.portalCapsules}>
+            {REGULATORY_PORTALS.map((portal) => (
+              <a
+                key={portal.name}
+                href={portal.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.portalCapsule}
+              >
+                {portal.name}
+              </a>
+            ))}
           </div>
 
-          <p className={styles.riskFactorParagraph}>
-            <strong className={styles.riskFactorHighlight}>Risk Factors – </strong>
-            Investments in Mutual Funds are subject to Market Risks. Read all scheme related documents carefully before investing. Mutual Fund Schemes do not assure or guarantee any returns. Past performances of any Mutual Fund Scheme may or may not be sustained in future. There is no guarantee that the investment objective of any selected scheme shall be achieved. All existing and prospective investors are advised to check and evaluate the Exit loads and other exit structure and TER applicable at the time of making the investment before finalizing on any investment decision for Mutual Funds schemes. We deal in Regular Solutions only for Mutual Fund Schemes and earn a Trailing Commission on client investments. Disclosure For Commission earnings is made to clients at the time of investments. Option of Direct Solution for every Mutual Fund Scheme is available to investors offering advantage of lower expense ratio. We are not entitled to earn any commission on Direct Solutions. Hence we do not deal in Direct Solutions.
-          </p>
+          {/* 2. Statutory Risk & Market Disclaimers (Centered, 12px text) */}
+          <div className={styles.disclaimersBox}>
+            <p className={styles.disclaimerParagraph}>
+              Investments in securities markets are subject to market risks. Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns.
+            </p>
+            <p className={styles.disclaimerParagraph}>
+              The value of investments may fluctuate due to various factors including market conditions, interest rate movements, credit quality of underlying securities, and liquidity in the market.
+            </p>
+            <p className={styles.disclaimerParagraph}>
+              Different types of financial products carry different levels of risk. Investors should evaluate their risk appetite and investment objectives before making any investment decision.
+            </p>
+            <p className={styles.disclaimerParagraph}>
+              Please refer to the respective offering documents such as the Scheme Information Document (SID), Key Information Memorandum (KIM), Disclosure Documents, or other product-specific materials for detailed risk factors.
+            </p>
+          </div>
 
-          <p className={styles.disclosureText}>
-            {COMPANY_INFO.disclosures.generalDisclosure}
-          </p>
-        </div>
+          {/* Registration & Grievances Credentials */}
+          <div className={styles.credentialsBox}>
+            <p className={styles.credentialsLine}>
+              AMFI Registered Mutual Fund Distributor | ARN: <span className={styles.credentialHighlight}>{COMPANY_INFO.arn}</span> | Date: <span className={styles.credentialHighlight}>20-Feb-2024</span> | Valid Till: <span className={styles.credentialHighlight}>20-Feb-2027</span>
+            </p>
+            <p className={styles.credentialsLine}>
+              For Grievances contact: <a href={`tel:${COMPANY_INFO.mobile}`} className={styles.credentialLink}>{COMPANY_INFO.displayPhone}</a> | Email: <a href={`mailto:${COMPANY_INFO.email}`} className={styles.credentialLink}>{COMPANY_INFO.email}</a>
+            </p>
+          </div>
 
-        {/* Bottom Legal Bar matching Image 5 */}
-        <div className={styles.bottomBar}>
-          <div className={styles.bottomBarInner}>
-            {/* Market & Regulatory Exchange Direct Links */}
-            <div className={styles.marketLinks}>
-              {MARKET_LINKS.map((item, idx) => (
-                <React.Fragment key={item.name}>
-                  {idx > 0 && <span className={styles.marketPipe}>|</span>}
+          {/* 3. Regulatory & Compliance Navigation Links (Centered, single pipe-separated row) */}
+          <div className={styles.complianceNav}>
+            {COMPLIANCE_LINKS.map((link, idx) => (
+              <React.Fragment key={link.label}>
+                {idx > 0 && <span className={styles.navPipe}>|</span>}
+                {link.isExternal ? (
                   <a
-                    href={item.url}
+                    href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.marketLink}
+                    className={styles.complianceNavLink}
                   >
-                    {item.name}
+                    {link.label}
                   </a>
-                </React.Fragment>
-              ))}
-            </div>
+                ) : (
+                  <Link href={link.href} className={styles.complianceNavLink}>
+                    {link.label}
+                  </Link>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
 
-            <div className={styles.copyright}>
-              <span>&copy; 2026 {COMPANY_INFO.legalName.replace(/\.+$/, '')}. All Rights Reserved | Designed by</span>
+          {/* 4. Industry Badges (Centered) */}
+          <div className={styles.industryBadges}>
+            <div className={styles.badgeCard}>
+              <img
+                src="/images/amfi-logo.webp"
+                alt="AMFI Logo"
+                className={styles.badgeImg}
+                loading="lazy"
+              />
+            </div>
+            <div className={styles.badgeCard}>
+              <img
+                src="/images/mf-sahi-hai-logo.webp"
+                alt="Mutual Funds Sahi Hai"
+                className={styles.badgeImg}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* 5. Bottom Copyright & Attribution Bar */}
+        <div className={styles.bottomBar}>
+          <div className={styles.bottomBarInner}>
+            <div className={styles.copyrightLeft}>
+              &copy; 2026 {COMPANY_INFO.legalName.replace(/\.+$/, '')}. All rights reserved.
+            </div>
+            <div className={styles.designedByRight}>
+              Designed by{' '}
               <a
-                href="https://ainatech.in/"
+                href="https://ainatech.in"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.designedByLink}
               >
                 AinaTech Services LLP
               </a>
-            </div>
-
-            <div className={styles.legalLinks}>
-              <Link href="/privacy-policy" className={styles.legalLink}>
-                Privacy Policy
-              </Link>
-              <Link href="/disclaimer#terms" className={styles.legalLink}>
-                Terms of Service
-              </Link>
-              <Link href="/disclaimer" className={styles.legalLink}>
-                Disclaimer
-              </Link>
-              <Link href="/disclosure" className={styles.legalLink}>
-                Disclosure
-              </Link>
-              <a
-                href="https://www.sebi.gov.in/filings/mutual-funds.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.legalLink}
-              >
-                SID/SAI/KIM
-              </a>
-              <a
-                href="/AMFI_Code-of-Conduct.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.legalLink}
-              >
-                Code of Conduct
-              </a>
-              <a
-                href="https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=1&ssid=7&smid=0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.legalLink}
-              >
-                SEBI Circulars
-              </a>
-              <Link href="/amfi-risk-factors" className={styles.legalLink}>
-                AMFI Risk Factors
-              </Link>
             </div>
           </div>
         </div>
